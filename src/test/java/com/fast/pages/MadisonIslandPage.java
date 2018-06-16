@@ -13,7 +13,7 @@ import net.thucydides.core.pages.PageObject;
 import java.util.List;
 
 @DefaultUrl("https://fasttrackit.org/selenium-test/")
-public class DictionaryPage extends PageObject {
+public class MadisonIslandPage extends PageObject {
 
 //    @FindBy(name="search")
 //    private WebElementFacade searchTerms;

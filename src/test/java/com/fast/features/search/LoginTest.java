@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import com.fast.steps.serenity.EndUserSteps;
 
 @RunWith(SerenityRunner.class)
-public class SearchByKeywordStory {
+public class LoginTest {
 
     @Managed(uniqueSession = false)
     public WebDriver webdriver;
@@ -22,6 +22,7 @@ public class SearchByKeywordStory {
     @Test
     public void enterValidDataInLoginFieldsAndClickLogin(){
         mury.openPage();
+        mury.maximize();
         mury.clickOnACCOUNTLinkText();
         mury.clickOnLoginLinkText();
         mury.typeEmail("mail@mail.com");
@@ -29,15 +30,17 @@ public class SearchByKeywordStory {
         mury.clickLoginButton();
         mury.checkSuccessMessage();
     }
+
     @Test
-    public void enterValidDataInLoginFieldsAndClickLogin2(){
+    public void tryToLoginWithoutAnExistingAccount(){
         mury.openPage();
+        mury.maximize();
         mury.clickOnACCOUNTLinkText();
         mury.clickOnLoginLinkText();
-        mury.typeEmail("mail@mail.com");
+        mury.enterUniqueEmail();
         mury.typePassword("123456");
         mury.clickLoginButton();
-        mury.checkSuccessMessage();
+        mury.checkErrorMessage();
     }
 
 

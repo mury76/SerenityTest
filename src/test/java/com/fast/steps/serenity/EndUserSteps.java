@@ -1,65 +1,77 @@
 package com.fast.steps.serenity;
 
-import com.fast.pages.DictionaryPage;
+import com.fast.pages.MadisonIslandPage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.By;
+import org.yecht.Data;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
 
 public class EndUserSteps {
 
-    DictionaryPage dictionaryPage;
+    MadisonIslandPage madisonIslandPage;
 
     @Step
     public void openPage(){
-        dictionaryPage.open();
+        madisonIslandPage.open();
+    }
+    @Step
+    public void maximize(){
+        madisonIslandPage.getDriver().manage().window().maximize();
     }
     @Step
     public void clickOnACCOUNTLinkText() {
-        dictionaryPage.clickOnAccountLinkText();
+        madisonIslandPage.clickOnAccountLinkText();
     }
     @Step
     public void clickOnLoginLinkText() {
-        dictionaryPage.clickOnLoginLinkText();
+        madisonIslandPage.clickOnLoginLinkText();
     }
     @Step
     public void typeEmail(String email){
-        dictionaryPage.enterEmailText(email);
+        madisonIslandPage.enterEmailText(email);
     }
     @Step
     public void typePassword(String password){
-        dictionaryPage.enterPasswordText(password);
+        madisonIslandPage.enterPasswordText(password);
     }
     @Step
     public void clickLoginButton(){
-        dictionaryPage.clickOnLoginButton();
+        madisonIslandPage.clickOnLoginButton();
     }
     @Step
     public void checkSuccessMessage(){
-        dictionaryPage.shouldBeVisible(By.className("welcome-msg"));
+        madisonIslandPage.shouldBeVisible(By.className("hello"));
+    }
+    @Step
+    public void checkErrorMessage() {
+        madisonIslandPage.shouldBeVisible(By.className("error-msg"));
+    }
+    @Step
+    public void enterUniqueEmail(){
+        String email = "mail" + System.currentTimeMillis() + "@mail.com";
+        madisonIslandPage.enterEmailText(email);
     }
 
 //    @Step
 //    public void enters(String keyword) {
-//        dictionaryPage.enter_keywords(keyword);
+//        madisonIslandPage.enter_keywords(keyword);
 //    }
 //
 //    @Step
 //    public void starts_search() {
-//        dictionaryPage.lookup_terms();
+//        madisonIslandPage.lookup_terms();
 //    }
 //
 //    @Step
 //    public void should_see_definition(String definition) {
-//        assertThat(dictionaryPage.getDefinitions(), hasItem(containsString(definition)));
+//        assertThat(madisonIslandPage.getDefinitions(), hasItem(containsString(definition)));
 //    }
 //
 //    @Step
 //    public void is_the_home_page() {
-//        dictionaryPage.open();
+//        madisonIslandPage.open();
 //    }
 //
 //    @Step
