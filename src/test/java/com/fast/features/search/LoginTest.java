@@ -20,7 +20,7 @@ public class LoginTest {
     public EndUserSteps mury;
 
     @Test
-    public void enterValidDataInLoginFieldsAndClickLogin(){
+    public void tryToLoginWithValidData(){
         mury.openPage();
         mury.maximize();
         mury.clickOnACCOUNTLinkText();
@@ -30,9 +30,8 @@ public class LoginTest {
         mury.clickLoginButton();
         mury.checkSuccessMessage();
     }
-
     @Test
-    public void tryToLoginWithoutAnExistingAccount(){
+    public void tryToLoginWithUnregisteredEmail(){
         mury.openPage();
         mury.maximize();
         mury.clickOnACCOUNTLinkText();
@@ -41,6 +40,39 @@ public class LoginTest {
         mury.typePassword("123456");
         mury.clickLoginButton();
         mury.checkErrorMessage();
+    }
+    @Test
+    public void tryToLoginWithWrongPassword(){
+        mury.openPage();
+        mury.maximize();
+        mury.clickOnACCOUNTLinkText();
+        mury.clickOnLoginLinkText();
+        mury.typeEmail("mail@mail.com");
+        mury.typePassword("this_is_not_a_valid_password_for_this_email");
+        mury.clickLoginButton();
+        mury.checkErrorMessage();
+    }
+    @Test
+    public void tryToLoginWithEmailFieldEmpty(){
+        mury.openPage();
+        mury.maximize();
+        mury.clickOnACCOUNTLinkText();
+        mury.clickOnLoginLinkText();
+        mury.typeEmail("");
+        mury.typePassword("123456");
+        mury.clickLoginButton();
+        mury.checkIfEmailFieldIsEmpty();
+    }
+    @Test
+    public void tryToLoginWithPasswordFieldEmpty(){
+        mury.openPage();
+        mury.maximize();
+        mury.clickOnACCOUNTLinkText();
+        mury.clickOnLoginLinkText();
+        mury.typeEmail("mail@mail.com");
+        mury.typePassword("");
+        mury.clickLoginButton();
+        mury.checkIfPasswordFieldIsEmpty();
     }
 
 

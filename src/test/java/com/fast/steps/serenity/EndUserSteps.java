@@ -45,13 +45,21 @@ public class EndUserSteps {
         madisonIslandPage.shouldBeVisible(By.className("hello"));
     }
     @Step
-    public void checkErrorMessage() {
+    public void checkErrorMessage(){
         madisonIslandPage.shouldBeVisible(By.className("error-msg"));
     }
     @Step
     public void enterUniqueEmail(){
         String email = "mail" + System.currentTimeMillis() + "@mail.com";
         madisonIslandPage.enterEmailText(email);
+    }
+    @Step
+    public void checkIfEmailFieldIsEmpty(){
+        madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-email"));
+    }
+    @Step
+    public void checkIfPasswordFieldIsEmpty(){
+        madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-pass"));
     }
 
 //    @Step

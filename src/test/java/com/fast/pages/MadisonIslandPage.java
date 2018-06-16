@@ -51,6 +51,7 @@ public class MadisonIslandPage extends PageObject {
     @FindBy(id="send2")
     private WebElementFacade loginButton;
 
+
     public void clickOnAccountLinkText () {
         accountLinkText.click();
     }
