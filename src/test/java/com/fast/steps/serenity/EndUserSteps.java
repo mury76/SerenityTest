@@ -3,10 +3,6 @@ package com.fast.steps.serenity;
 import com.fast.pages.MadisonIslandPage;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
-import org.yecht.Data;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
 
 public class EndUserSteps {
 
@@ -58,33 +54,11 @@ public class EndUserSteps {
         madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-email"));
     }
     @Step
+    public void checkIfEmailHasCorrectFormat(){
+        madisonIslandPage.shouldBeVisible(By.id("advice-validate-email-email"));
+    }
+    @Step
     public void checkIfPasswordFieldIsEmpty(){
         madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-pass"));
     }
-
-//    @Step
-//    public void enters(String keyword) {
-//        madisonIslandPage.enter_keywords(keyword);
-//    }
-//
-//    @Step
-//    public void starts_search() {
-//        madisonIslandPage.lookup_terms();
-//    }
-//
-//    @Step
-//    public void should_see_definition(String definition) {
-//        assertThat(madisonIslandPage.getDefinitions(), hasItem(containsString(definition)));
-//    }
-//
-//    @Step
-//    public void is_the_home_page() {
-//        madisonIslandPage.open();
-//    }
-//
-//    @Step
-//    public void looks_for(String term) {
-//        enters(term);
-//        starts_search();
-//    }
 }
