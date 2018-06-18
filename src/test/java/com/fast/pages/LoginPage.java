@@ -6,8 +6,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl("https://fasttrackit.org/selenium-test/")
-public class MadisonIslandPage extends PageObject {
-
+public class LoginPage extends PageObject {
 
     @FindBy(linkText = "ACCOUNT")
     private WebElementFacade accountLinkText;

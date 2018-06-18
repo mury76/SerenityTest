@@ -1,12 +1,17 @@
 package com.fast.steps.serenity;
 
-import com.fast.pages.MadisonIslandPage;
+import com.fast.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
-public class EndUserSteps {
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-    MadisonIslandPage madisonIslandPage;
+public class LoginSteps {
+
+    LoginPage madisonIslandPage;
 
     @Step
     public void openPage(){
@@ -17,7 +22,7 @@ public class EndUserSteps {
         madisonIslandPage.getDriver().manage().window().maximize();
     }
     @Step
-    public void clickOnACCOUNTLinkText() {
+    public void clickOnAccountLinkText() {
         madisonIslandPage.clickOnAccountLinkText();
     }
     @Step
@@ -60,5 +65,12 @@ public class EndUserSteps {
     @Step
     public void checkIfPasswordFieldIsEmpty(){
         madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-pass"));
+    }
+    @Step
+    public void checkIfEmailHasTheAdSign(){
+        JavascriptExecutor js = (JavascriptExecutor)madisonIslandPage.getDriver();
+        WebElement field = madisonIslandPage.getDriver().findElement(By.id("email"));
+        Boolean is_valid = (Boolean)js.executeScript("return arguments[0].checkValidity();", field);
+        assertThat("The email field validates email without @ !", is_valid, is(false));
     }
 }
