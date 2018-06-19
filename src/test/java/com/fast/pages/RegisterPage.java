@@ -30,20 +30,32 @@ public class RegisterPage extends PageObject {
     }
     @FindBy(id = "lastname")
     private WebElementFacade lastNameField;
-
+    public void enterLastName(String lastName){
+        lastNameField.type(lastName);
+    }
     @FindBy(id = "email_address")
     private WebElementFacade emailAddressField;
-
+    public void enterEmail(String email){
+        emailAddressField.type(email);
+    }
     @FindBy(id = "password")
     private WebElementFacade passwordField;
-
+    public void enterPassword(String password){
+        passwordField.type(password);
+    }
     @FindBy(id = "confirmation")
     private WebElementFacade confirmationField;
-
+    public void enterConfirmation(String confirmation){
+        confirmationField.type(confirmation);
+    }
     @FindBy(name = "is_subscribed")
     private WebElementFacade subscribeCheckButton;
-
+    public void clickSubscribe(){
+        subscribeCheckButton.click();
+    }
     @FindBy(css = "button[title='Register']")
     private WebElementFacade registerButton;
-
+    public void clickRegister(){
+        registerButton.click();
+    }
 }

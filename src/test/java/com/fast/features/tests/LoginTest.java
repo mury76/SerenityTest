@@ -1,4 +1,4 @@
-package com.fast.features.search;
+package com.fast.features.tests;
 
 import com.fast.steps.serenity.LoginSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
