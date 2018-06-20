@@ -67,7 +67,7 @@ public class LoginSteps {
         madisonIslandPage.shouldBeVisible(By.id("advice-required-entry-pass"));
     }
     @Step
-    public void checkIfEmailHasTheAdSign(){
+    public void checkIfEmailHasTheAtSign(){
         JavascriptExecutor js = (JavascriptExecutor)madisonIslandPage.getDriver();
         WebElement field = madisonIslandPage.getDriver().findElement(By.id("email"));
         Boolean is_valid = (Boolean)js.executeScript("return arguments[0].checkValidity();", field);

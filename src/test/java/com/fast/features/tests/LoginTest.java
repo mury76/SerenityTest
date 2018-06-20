@@ -93,6 +93,6 @@ public class LoginTest {
         mury.typeEmail("mail.mail.com");
         mury.typePassword("123456");
         mury.clickLoginButton();
-        mury.checkIfEmailHasTheAdSign();
+        mury.checkIfEmailHasTheAtSign();
     }
 } 
